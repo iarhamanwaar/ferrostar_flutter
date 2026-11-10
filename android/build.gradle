@@ -1,0 +1,55 @@
+group = 'dev.ferrostarflutter'
+version = '0.1.0'
+
+buildscript {
+    ext.kotlin_version = '2.2.10'
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:8.12.0'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+rootProject.allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+
+android {
+    namespace = 'dev.ferrostarflutter'
+    compileSdk = flutter.compileSdkVersion
+
+    defaultConfig {
+        // Ferrostar core requires API 25.
+        minSdkVersion 25
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+        // Ferrostar uses java.time below API 26; the HOST APP must also enable
+        // core library desugaring (see README).
+        coreLibraryDesugaringEnabled = true
+    }
+
+    kotlinOptions {
+        jvmTarget = '17'
+    }
+}
+
+dependencies {
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.1.5'
+    // Pre-1.0 core: pinned to an exact release on purpose (API churn).
+    api 'com.stadiamaps.ferrostar:core:0.59.0'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.11.0'
+    implementation 'org.jetbrains.kotlinx:kotlinx-serialization-json:1.11.0'
+    implementation 'net.java.dev.jna:jna:5.18.1@aar'
+}

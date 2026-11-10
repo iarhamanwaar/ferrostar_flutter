@@ -1,0 +1,32 @@
+name: ferrostar_flutter
+description: >-
+  Headless Flutter bridge to the Ferrostar navigation core (maneuvers, exits,
+  spoken instructions, progress and configurable off-route detection) without
+  taking over your UI or map.
+version: 0.1.0
+
+repository: https://github.com/OWNER/ferrostar_flutter
+
+environment:
+  sdk: ^3.11.0
+  flutter: '>=3.41.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  meta: ^1.18.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  pigeon: ^26.0.0
+
+flutter:
+  plugin:
+    platforms:
+      android:
+        package: dev.ferrostarflutter
+        pluginClass: FerrostarFlutterPlugin
+      ios:
+        pluginClass: FerrostarFlutterPlugin
+        sharedDarwinSource: false
