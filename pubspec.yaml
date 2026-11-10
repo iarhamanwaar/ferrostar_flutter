@@ -5,7 +5,7 @@ description: >-
   taking over your UI or map.
 version: 0.1.0
 
-repository: https://github.com/OWNER/ferrostar_flutter
+repository: https://github.com/iarhamanwaar/ferrostar_flutter
 
 environment:
   sdk: ^3.11.0
