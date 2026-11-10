@@ -1,3 +1,11 @@
+## 0.1.3
+
+* iOS (CocoaPods): the Podfile hook now also removes a duplicate Ferrostar binary
+  signature that made `flutter build ipa` / archive fail with "libferrostar-rs.xcframework-ios.signature
+  couldn't be copied to Signatures because an item with the same name already
+  exists" (an Xcode bug). Nothing to add to your Podfile; update the package.
+* README: iOS release notes (device builds, re-resolving packages).
+
 ## 0.1.2
 
 * README rewritten for clarity: why, install, 30-second tour, FAQ, honest limits.

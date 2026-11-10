@@ -185,6 +185,19 @@ core uses `java.time`.
   declared in `Package.swift`, but not yet verified end to end by the author.
   Reports welcome.
 
+### Releasing to the App Store (device archives)
+
+Simulator and debug builds are easy. Two things only show up when you archive for a
+device with the CocoaPods route:
+
+* **"There is no XCFramework found at ... libferrostar-rs.xcframework"**: the Ferrostar
+  binary was not downloaded into the build's package cache. Run
+  `xcodebuild -resolvePackageDependencies -workspace ios/Runner.xcworkspace -scheme <your scheme> -clonedSourcePackagesDirPath build/ios/SourcePackages`
+  once and archive again.
+* **"libferrostar-rs.xcframework-ios.signature couldn't be copied to Signatures"**: an
+  Xcode bug. Version 0.1.3 and later handle it inside the Podfile hook, so there is
+  nothing to add. Delete `build/ios/archive` between failed attempts.
+
 ## FAQ
 
 **Do I need a Mapbox or Google key?** No.

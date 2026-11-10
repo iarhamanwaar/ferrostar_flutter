@@ -34,6 +34,8 @@ def ferrostar_flutter_link_spm(installer)
     c.build_settings['FRAMEWORK_SEARCH_PATHS'] = '$(inherited) "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)" "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/PackageFrameworks"'
   end
 
+  ferrostar_flutter_dedupe_signature(target)
+
   return if target.package_product_dependencies.any? { |d| d.product_name == 'FerrostarCore' }
 
   dep = project.new(Xcodeproj::Project::Object::XCSwiftPackageProductDependency)
@@ -48,4 +50,21 @@ def ferrostar_flutter_link_spm(installer)
   bf = project.new(Xcodeproj::Project::Object::PBXBuildFile)
   bf.product_ref = dep
   target.frameworks_build_phase.files << bf
+end
+
+# Xcode archive bug (Xcode 15, 16 and 26; no Apple fix): a binary SwiftPM xcframework
+# that is linked from a pod framework AND the app that contains it gets its
+# `.signature` written under both build directories, and `flutter build ipa` then
+# fails with "libferrostar-rs.xcframework-ios.signature couldn't be copied to
+# Signatures because an item with the same name already exists". The pod removes its
+# own copy when it finishes building. It lives in the generated Pods project, so no
+# committed project file changes, and it does nothing for simulator or debug builds.
+DEDUPE_PHASE = 'Dedupe Ferrostar xcframework signature'
+
+def ferrostar_flutter_dedupe_signature(target)
+  return if target.shell_script_build_phases.any? { |p| p.name == DEDUPE_PHASE }
+
+  phase = target.new_shell_script_build_phase(DEDUPE_PHASE)
+  phase.shell_script = 'rm -f "${CONFIGURATION_BUILD_DIR}/libferrostar-rs.xcframework-ios.signature"'
+  phase.always_out_of_date = '1'
 end
