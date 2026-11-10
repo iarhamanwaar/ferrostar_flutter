@@ -1,0 +1,22 @@
+PODS:
+  - ferrostar_flutter (0.1.1):
+    - Flutter
+  - Flutter (1.0.0)
+
+DEPENDENCIES:
+  - ferrostar_flutter (from `.symlinks/plugins/ferrostar_flutter/ios`)
+  - Flutter (from `Flutter`)
+
+EXTERNAL SOURCES:
+  ferrostar_flutter:
+    :path: ".symlinks/plugins/ferrostar_flutter/ios"
+  Flutter:
+    :path: Flutter
+
+SPEC CHECKSUMS:
+  ferrostar_flutter: 7dd2d9c0c8025b665b2fcb075722c441092310fe
+  Flutter: cabc95a1d2626b1b06e7179b784ebcf0c0cde467
+
+PODFILE CHECKSUM: b9c571488e0201ab93345e03c6c7304a05b44983
+
+COCOAPODS: 1.16.2

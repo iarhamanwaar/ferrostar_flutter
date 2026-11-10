@@ -5,7 +5,7 @@
 # Manager integration enabled, ferrostar_flutter/Package.swift is used instead.
 Pod::Spec.new do |s|
   s.name             = 'ferrostar_flutter'
-  s.version          = '0.1.1'
+  s.version          = '0.1.2'
   s.summary          = 'Headless Flutter bridge to the Ferrostar navigation core.'
   s.description      = 'Headless Flutter bridge to Ferrostar (BSD-3-Clause).'
   s.license          = { :type => 'BSD-3-Clause', :file => '../LICENSE' }

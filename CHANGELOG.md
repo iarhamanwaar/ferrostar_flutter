@@ -1,3 +1,13 @@
+## 0.1.2
+
+* README rewritten for clarity: why, install, 30-second tour, FAQ, honest limits.
+* Screenshots and a demo GIF recorded from the example app on an iOS simulator.
+* Example is now a runnable app (`ios/` and `android/` added) with a route
+  drawing, banner and a simulated detour.
+* iOS: `Package.swift` now depends on `FlutterFramework` as current Flutter
+  requires of Swift Package Manager plugins.
+* Added CONTRIBUTING.md.
+
 ## 0.1.1
 
 * README rewritten: comparison with other navigation packages, quick start,

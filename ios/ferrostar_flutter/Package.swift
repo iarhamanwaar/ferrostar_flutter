@@ -11,12 +11,14 @@ let package = Package(
     dependencies: [
         // Pre-1.0 core: pinned to an exact release on purpose (API churn).
         .package(url: "https://github.com/stadiamaps/ferrostar", exact: "0.59.0"),
+        .package(name: "FlutterFramework", path: "../FlutterFramework"),
     ],
     targets: [
         .target(
             name: "ferrostar_flutter",
             dependencies: [
                 .product(name: "FerrostarCore", package: "ferrostar"),
+                .product(name: "FlutterFramework", package: "FlutterFramework"),
             ]
         ),
     ]

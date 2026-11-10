@@ -1,12 +1,18 @@
 name: ferrostar_flutter
 description: >-
-  Headless Flutter bridge to the Ferrostar navigation core (maneuvers, exits,
-  spoken instructions, progress and configurable off-route detection) without
-  taking over your UI or map.
-version: 0.1.1
+  Turn-by-turn navigation for Flutter without Mapbox or Google. A headless bridge
+  to the open-source Ferrostar core: maneuvers, exits, voice text, off-route.
+version: 0.1.2
 
 repository: https://github.com/iarhamanwaar/ferrostar_flutter
 issue_tracker: https://github.com/iarhamanwaar/ferrostar_flutter/issues
+screenshots:
+  - description: Exit banner with exit number and spoken instruction.
+    path: doc/images/01-exit-banner.png
+  - description: Off-route state raised after a detour.
+    path: doc/images/02-off-route.png
+  - description: Arrival banner at the end of the route.
+    path: doc/images/03-arrive.png
 topics:
   - navigation
   - turn-by-turn
