@@ -1,5 +1,5 @@
 name: ferrostar_flutter_example
-description: Minimal stub showing the ferrostar_flutter API.
+description: Replays a bundled sample route through ferrostar_flutter with no map and no token.
 publish_to: none
 environment:
   sdk: ^3.11.0
@@ -8,3 +8,10 @@ dependencies:
     sdk: flutter
   ferrostar_flutter:
     path: ../
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/route.json
