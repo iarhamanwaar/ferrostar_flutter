@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.description      = 'Headless Flutter bridge to Ferrostar (BSD-3-Clause).'
   s.license          = { :type => 'BSD-3-Clause', :file => '../LICENSE' }
   s.author           = { 'ferrostar_flutter' => 'noreply@example.com' }
-  s.homepage         = 'https://github.com/OWNER/ferrostar_flutter'
+  s.homepage         = 'https://github.com/iarhamanwaar/ferrostar_flutter'
   s.source           = { :path => '.' }
   s.source_files     = 'ferrostar_flutter/Sources/ferrostar_flutter/**/*.swift'
   s.dependency 'Flutter'
